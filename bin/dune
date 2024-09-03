@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (public_name humpback)
+ (libraries lwt lwt.unix humpback)
+ (preprocess (pps lwt_ppx)))

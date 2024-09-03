@@ -1,0 +1,32 @@
+opam-version: "2.0"
+synopsis: "Humpback: A lightweight OCaml web server"
+description: "Humpback is a simple, efficient web server written in OCaml using the Lwt library for concurrent programming."
+maintainer: ["Jamie Wales"]
+authors: ["Jamie Wales"]
+license: "MIT"
+tags: ["web" "server" "ocaml" "lwt"]
+homepage: "https://github.com/jamiewales/humpback"
+doc: "https://github.com/jamiewales/humpback#readme"
+bug-reports: "https://github.com/jamiewales/humpback/issues"
+depends: [
+  "ocaml" {>= "4.08"}
+  "dune" {>= "3.16"}
+  "lwt" {>= "5.3.0"}
+  "lwt_ppx"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/jamiewales/humpback.git"
